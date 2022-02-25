@@ -20,7 +20,7 @@ except ImportError:
 
 print("Enter 'exit anytime to exit the chatbot..")
 
-CV_HNDLR = {"_":"15cf3daa-9470-45dd-80d2-6faa3d5aac39"}
+CV_HNDLR = {}
 
 print("Enter Message.")
 
