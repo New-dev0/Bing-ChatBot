@@ -9,10 +9,20 @@ You can view it's working on Telegram or in console as mentioned below.
 
 View it in Action - [@BinggBot](https://t.me/BinggBot).
 
-### Configuration and Deployment
-- Fill Telegram bot token in `BOT_TOKEN` Var.
+## Configuration and Deployment
+### Vars:
+    - BOT_TOKEN: Telegram Bot Token.
+    - CH_DB_ID: Creating Telegram channel, add bot as admin there and place Channel id here in this Var.
+    - CH_MSG_ID: To be filled later.
+    - OWNER_ID: Your own Telegram UserId.
+
+### Owner Commands -
+    - '/savedb' - Save Database file.
+    - '/stats' -  Get total number of Users in database.
+    - '/broadcast' - Send Broadcast message to Users.
+
 - Install requirements. `pip3 install -r requirements.txt`
-- Run it finally. `python3 bot.py`
+- Run it finally. `python3 -m BingBot`
 
 
 ## Run It in Console

@@ -1,7 +1,8 @@
 # Copyright New-dev0 2022
 # https://github.com/New-dev0/BING-CHATBOT
 
-print("""
+print(
+    """
 
 ░█████╗░██╗░░██╗░█████╗░████████╗██████╗░░█████╗░████████╗
 ██╔══██╗██║░░██║██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗╚══██╔══╝
@@ -9,7 +10,8 @@ print("""
 ██║░░██╗██╔══██║██╔══██║░░░██║░░░██╔══██╗██║░░██║░░░██║░░░
 ╚█████╔╝██║░░██║██║░░██║░░░██║░░░██████╦╝╚█████╔╝░░░██║░░░
 ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═════╝░░╚════╝░░░░╚═╝░░░
-\n\n""")
+\n\n"""
+)
 
 try:
     import requests
@@ -24,12 +26,13 @@ CV_HNDLR = {}
 
 print("Enter Message.")
 
+
 def main(inpt):
     if inpt == "'exit":
         exit()
-    json = {"userMessageText":inpt}
+    json = {"userMessageText": inpt}
     if CV_HNDLR:
-        json.update({"conversationId":CV_HNDLR["_"]})
+        json.update({"conversationId": CV_HNDLR["_"]})
     _ = requests.post("https://services.bingapis.com/sydney/chat", json=json).json()
     if not _.get("messages") and "has expired." in _["result"]["message"]:
         del CV_HNDLR["_"]
@@ -47,7 +50,7 @@ def main(inpt):
     if not CV_HNDLR:
         CV_HNDLR["_"] = _["conversationId"]
 
+
 while True:
     inpt = input("> ")
     main(inpt)
-    

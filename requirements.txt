@@ -1,3 +1,6 @@
 telethon<=1.24.0
 aiohttp<=3.8.1
 python-decouple<=3.6
+apscheduler
+# git+https://github.com/1danish-00/google_trans_new.git
+https://github.com/1danish-00/google_trans_new/archive/master.zip
