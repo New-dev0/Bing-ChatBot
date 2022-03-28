@@ -54,7 +54,7 @@ def translate(text, sender=None, to_bing=False):
     return text
 
 
-@client.on(NewMessage(func=lambda x: x.text or x.sticker))
+@client.on(NewMessage(func=lambda x: x.text or x.sticker, incoming=True))
 async def message_handler(event: Message):
     if event.chat_id not in JSONDB["users"]:
         JSONDB["users"].append(event.chat_id)
