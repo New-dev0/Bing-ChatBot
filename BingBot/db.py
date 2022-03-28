@@ -9,9 +9,14 @@ from . import client, Var, LOG
 JSONDB = None
 
 if Var.CH_DB and Var.CH_MSG_ID:
-    MSG = client.loop.run_until_complete(
-        client.get_messages(Var.CH_DB, ids=Var.CH_MSG_ID)
-    )
+    try:
+        client.loop.run_until_complete(client.get_entity(Var.CH_DB))
+        MSG = client.loop.run_until_complete(
+            client.get_messages(Var.CH_DB, ids=Var.CH_MSG_ID)
+        )
+    except Exception as er:
+        LOG.exception(er)
+        MSG = None
     if MSG:
         LOG.info("Downloading last DB file...")
         JSONDB_ = client.loop.run_until_complete(MSG.download_media())

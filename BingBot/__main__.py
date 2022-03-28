@@ -21,7 +21,7 @@ from . import client, JSONDB, save_json, LOG, Var
 
 API_URL = "https://services.bingapis.com/sydney/chat"
 HI_STRINGS = ["hi", "hello", "hey"]
-IGNORE_CMDS = ("/setlanguage", "/broadcast", "/stats", "/savedb")
+IGNORE_CMDS = ("/setlanguage", "/broadcast", "/stats", "/savedb", "/source")
 CONVERSATION_HANDLER = {}
 SELF = client.loop.run_until_complete(client.get_me())
 translator = google_translator()
@@ -172,6 +172,11 @@ async def set_lang(event):
     name = code_lang[match]
     name = name[0].upper() + name[1:]
     await event.edit(f"Language successfully changed to {name} !")
+
+
+@client.on(NewMessage(pattern="^/source$"))
+async def source_cmd(event):
+    await event.reply("Here is my Source!\nhttps://github.com/New-dev0/Bing-Chatbot")
 
 
 if Var.OWNER_ID:
