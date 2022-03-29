@@ -19,6 +19,6 @@ client.start(bot_token=Var.BOT_TOKEN)
 from .db import JSONDB, save_json
 
 sched = AsyncIOScheduler()
-sched.add_job(save_json, "interval", hours=Var.DB_UPDATE_DELAY)
+sched.add_job(save_json, "interval", minutes=Var.DB_UPDATE_DELAY)
 sched.start()
 LOG.info(f"Enabled DB Auto Saving after every {Var.DB_UPDATE_DELAY} MINUTES.")
